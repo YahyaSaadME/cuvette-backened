@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "server/(.*)",
+            "destination": "server/"
+        }
+    ],
+    "builds": [
+        {
+            "src": "./server/index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "server/(.*)",
+            "dest": "server/"
+        }
+    ]
+}
