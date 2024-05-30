@@ -1,29 +1,21 @@
 {
     "version": 2,
     "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
     ],
-    "redirects": [
-      {
-        "source": "/(.*)",
-        "destination": "/",
-        "permanent": true
-      }
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
     ],
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          }
-        ]
-      }
-    ],
-    "cleanUrls": true,
-    "trailingSlash": true
-  }
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
+}
