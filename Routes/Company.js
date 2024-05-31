@@ -32,7 +32,7 @@ const UM = require("../model/UserSchema");
 
 CR.post("/signup", async (req, res) => {
   try {
-    const { password, name, email, about, logo, address, phone, linkedIn, website } = req.body;
+    const { password, name, email, address, linkedIn, website } = req.body;
     if (name == "" || password == "" || email == "" || name == null || password == null || email == null) {
       res.json({ msg: "Please fill all the fields" });
     } else {
@@ -50,10 +50,7 @@ CR.post("/signup", async (req, res) => {
               password: hashedPassword,
               name,
               email,
-              about,
-              logo,
               address,
-              phone,
               linkedIn,
               status: 1,
               website
