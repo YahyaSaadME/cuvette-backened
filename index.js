@@ -1,20 +1,23 @@
 const express = require("express")
 const app = express()
+const dotenv = require('dotenv');
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
-const UR = require("./Routes/User")
-const AR = require("./Routes/Admin");
-const CR = require("./Routes/Company");
 dotenv.config();
+const UR = require("./Routes/User")
+const CR = require("./Routes/Company");
+// Ignore Admin
+
+const AR = require("./Routes/Admin");
 
 require('./conn')
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser());
 app.use('/user',UR)
-app.use('/admin',AR)
 app.use('/company',CR)
+// Ignore Admin
+app.use('/admin',AR)
 
 app.get("/",(req,res)=>{
     res.send("server is up and running...")

@@ -102,6 +102,7 @@ CR.post("/login", async (req, res) => {
         bcrypt.compare(password, findbyCid.password, function (err, company) {
           if (err) {
             res.json({ msg: "Something went wrong!" });
+
           } else if (company) {
             const token = jwt.sign(
               {
